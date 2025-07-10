@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int sequencial(int vetor[], int tamanho, int x)
+{
+    bool achou = false; // var aux p busca
+    int i = 0; //contador
+    
+    while(achou == false && i < tamanho)
+    achou = vetor[i++] == x;
+    
+    if (achou)
+        return (i-1); //retorna a posiçaõ onde encontrou 
+    
+    else 
+        return -1; //nao localizado
+}
+
+int main()
+{
+    int vetor[10000];
+    int n; //quantidade de alunos
+    int i;
+    
+    cin >> n;
+    
+    for(i=0;i<n;i++)
+    {
+        cin >> vetor[i];
+    }
+    
+    int m; //matricula do aluno que quer saber o corredor 
+    
+    cin >> m;
+    
+    int resultado = sequencial(vetor, n , m);
+    
+    if(resultado != -1)
+    cout << "Corredor " << resultado << endl;
+    
+    else 
+    cout << "Nao localizado" << endl;
+    
+    return 0;
+}
