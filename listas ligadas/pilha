@@ -1,0 +1,52 @@
+#include<iostream>
+#include <list>
+using namespace std;
+
+int main()
+{
+	list <int> lista; //"ponteiro" para lista 
+	// o <int> é para armazernar numeros inteiros, pode ser float, double...
+	list <int>::iterator p; //ponteiro auxiliar
+	
+    int x;
+    int i;
+    
+    for(i=0; i< 4; i++)
+    {
+        cin >> x;
+        lista.push_front(x);
+    }
+
+    for(i=0; i<4; i++)
+    {
+        cout << *lista.begin() << " ";
+        lista.pop_front(); //remove o elemento
+    }
+ 
+ 
+    return 0;   
+}
+
+
+
+/*
+	int x;
+	int i;
+	
+	for(i=0; i<4; i++)
+	{
+		cin >> x;
+		lista.push_front(x);
+	}
+	
+	p = lista.begin();
+	
+	for(i=0; i<4; i++)
+	{
+	    cout << *p << " ";
+		p++;
+	}
+	
+	return 0;
+}
+*/
