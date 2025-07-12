@@ -1,0 +1,47 @@
+#include<iostream>
+#include <list>
+using namespace std;
+
+int main()
+{
+	list <int> lista; //"ponteiro" para lista 
+	list <int>::iterator p; //ponteiro auxiliar
+	
+	int x;
+	int i;
+	
+	for(i=0; i<4; i++)
+	{
+		cin >> x;
+		lista.push_back(x);
+	}
+	
+	p = lista.begin(); //indica o começo da lista
+	
+	for(i=0; i<4; i++)
+	{
+	    cout << *lista.begin() << " ";
+        lista.pop_front(); //remove o elemento
+	}
+	
+	return 0;
+}
+
+/*
+int x;
+	int i;
+	
+	for(i=0; i<4; i++)
+	{
+		cin >> x;
+		lista.push_back(x);
+	}
+	
+	p = lista.begin();
+	
+	for(i=0; i<4; i++)
+	{
+	    cout << *p << " ";
+		p++;
+	}
+*/
