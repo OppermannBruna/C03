@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int *v = NULL; //ponteiro para um vetor
+    int n; //tamanho do vetor
+    int i; //contador
+    int *p = NULL; //ponteiro auxiliar
+    int maior;
+    
+    //inserir o tamanho do vetor
+    cin >> n;
+    
+    v = new int[n]; //aloca dinamicamente o vetor
+    
+    //lendo os valores do vetor
+    for(i=0; i<n; i++)
+        cin >> v[i]; //inserindo os valores do vetor
+        
+    //imprimindo os valores do vetor
+    p = v; //ponteiro aponta para o vetor
+    
+    maior = *p; //inicializa a variavel como o primeiro numero
+    
+    for(i=0; i<n; i++)
+    {
+        if(*p > maior)
+        {
+            maior = *p;
+        }
+        p++;
+    }
+    
+    cout << maior << endl;
+    
+    delete []v; //libera a memoria alocada para o vetor
+    
+    return 0;
+}
