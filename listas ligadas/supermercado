@@ -1,0 +1,41 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main()
+{
+    list <int> estoque;
+    list <int> venda;
+    list <int>::iterator p;
+    int opcao;
+    int N;
+    int codigo;
+    int x;
+    
+    cin >> N;
+    for(int i=0; i<N; i++){
+        cin >> opcao;
+        if(opcao == 1){
+            cin >> codigo;
+            estoque.push_back(codigo);
+        }
+        else if(opcao == 2){
+            venda.push_front(estoque.front());
+            estoque.pop_front();
+        }
+            
+    }
+    
+    cout << "Estoque: ";
+    p = estoque.begin();
+    for(p; p != estoque.end(); p++)
+        cout << *p << " ";
+    
+    cout << endl << "Venda: ";
+    p = venda.begin();
+    for(p; p != venda.end(); p++)
+    cout << *p << " ";
+    
+    
+    return 0;
+}
