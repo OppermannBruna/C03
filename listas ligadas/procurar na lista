@@ -1,0 +1,49 @@
+#include<iostream>
+#include <list>
+using namespace std;
+
+bool encontrar(list<int> lista, int x)
+{
+    list <int>::iterator p; //ponteiro auxiliar
+    p = lista.begin(); //indica o começo da lista
+    for(p; p!= lista.end(); p++)
+    {
+        if(x == *p)
+        {
+        return 1;
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+	list <int> lista; //"ponteiro" para lista 
+	
+	int x;
+	int n; //num que vai buscar
+	
+	cin >> x;
+	
+	while(x != 0)
+	{
+	    cin >> x;
+	    
+	    if(x==0)
+	        break;
+	        
+        lista.push_back(x);
+	}
+	
+	cin >> n;
+	
+	if(encontrar(lista, n))
+	{
+	    cout << "Encontrado";
+	}
+	
+	else 
+	    cout << "Nao encontrado";
+	
+	return 0;
+}
