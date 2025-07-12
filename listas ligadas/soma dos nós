@@ -1,0 +1,37 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+int soma(list<int> lista)
+{
+    list <int>::iterator p; //ponteiro auxiliar
+    p = lista.begin(); //indica o começo da lista
+    int soma=0;;
+    for(p; p!= lista.end(); p++)
+    {
+        soma += *p;
+    }
+    
+    return soma;
+}
+
+int main()
+{
+    list <int> lista; //"ponteiro" para lista 
+	
+	int x;
+	
+	do
+	{
+	    cin >> x;
+	    
+	    if(x==0)
+	        break;
+	        
+        lista.push_back(x);
+	}while(x != 0);
+	
+	cout << soma(lista);
+    
+    return 0;
+}
