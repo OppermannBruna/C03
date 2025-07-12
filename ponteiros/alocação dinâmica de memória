@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct dados
+{
+   int notas[4]; 
+};
+
+int main()
+{
+    dados* alunos = NULL; //ponteiro para um vetor
+    int i; //contador
+    int *p = NULL; //ponteiro auxiliar
+    float soma = 0;
+    float media;
+    
+    alunos = new dados;//aloca dinamicamente o vetor
+    
+    //lendo os valores do vetor
+    for(i=0; i<4; i++)
+        cin >> alunos->notas[i]; //inserindo os valores do vetor
+        
+    for(i=0; i<4; i++)
+    {
+        soma = soma + alunos->notas[i];
+        p++;
+    }
+    
+    media = soma / 4.0;
+    
+    cout << fixed << setprecision(2);
+    cout << media << endl;
+    
+    delete alunos; //libera a memoria alocada para o vetor
+    
+    return 0;
+}
