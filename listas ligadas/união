@@ -1,0 +1,68 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main()
+{
+    list<int> lista1, lista2, lista3;
+    int x;
+
+    // Leitura da lista 1
+    while (cin >> x && x != 0)
+        lista1.push_back(x);
+
+    // Leitura da lista 2
+    while (cin >> x && x != 0)
+        lista2.push_back(x);
+
+    auto it1 = lista1.begin();
+    auto it2 = lista2.begin();
+
+    // Função auxiliar para inserir sem duplicar
+    auto inserirSemDuplicar = [&](int valor) {
+        if (lista3.empty() || lista3.back() != valor)
+            lista3.push_back(valor);
+    };
+
+    // Merge manual sem duplicados
+    while (it1 != lista1.end() && it2 != lista2.end())
+    {
+        if (*it1 < *it2)
+        {
+            inserirSemDuplicar(*it1);
+            ++it1;
+        }
+        else if (*it2 < *it1)
+        {
+            inserirSemDuplicar(*it2);
+            ++it2;
+        }
+        else // *it1 == *it2
+        {
+            inserirSemDuplicar(*it1);
+            ++it1;
+            ++it2;
+        }
+    }
+
+    // Resto da lista1
+    while (it1 != lista1.end())
+    {
+        inserirSemDuplicar(*it1);
+        ++it1;
+    }
+
+    // Resto da lista2
+    while (it2 != lista2.end())
+    {
+        inserirSemDuplicar(*it2);
+        ++it2;
+    }
+
+    // Imprime a lista 3
+    for (int valor : lista3)
+        cout << valor << " ";
+    cout << endl;
+
+    return 0;
+}
